@@ -30,7 +30,7 @@
 		return FALSE
 
 	var/mob/living/victim = targets[1] //The target of the spell whos body will be transferred to.
-	if(istype(victim, /mob/living/simple_animal/hostile/guardian))
+	if(isguardian(victim))
 		var/mob/living/simple_animal/hostile/guardian/stand = victim
 		if(stand.summoner)
 			victim = stand.summoner
@@ -94,7 +94,7 @@
 		if(!silent)
 			to_chat(user, span_warning("You're killing yourself! You can't concentrate enough to do this!"))
 		return FALSE
-	if(istype(victim, /mob/living/simple_animal/hostile/guardian))
+	if(isguardian(victim))
 		var/mob/living/simple_animal/hostile/guardian/stand = victim
 		if(stand.summoner)
 			if(stand.summoner == user)

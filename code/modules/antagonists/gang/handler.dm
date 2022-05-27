@@ -122,7 +122,7 @@ GLOBAL_VAR(families_override_theme)
 			break
 		var/taken = pick_n_take(antag_candidates) // original used antag_pick, but that's local to game_mode and rulesets use pick_n_take so this is fine maybe
 		var/datum/mind/gangbanger
-		if(istype(taken, /mob))
+		if(ismob(taken))
 			var/mob/T = taken
 			gangbanger = T.mind
 		else

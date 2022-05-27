@@ -52,7 +52,7 @@
 		if(whom[1] == "@")
 			whom = findStealthKey(whom)
 		C = GLOB.directory[whom]
-	else if(istype(whom, /client))
+	else if(isclient(whom))
 		C = whom
 	if(!C)
 		if(holder)
@@ -128,7 +128,7 @@
 			external = 1
 		else
 			recipient = GLOB.directory[whom]
-	else if(istype(whom, /client))
+	else if(isclient(whom))
 		recipient = whom
 
 	if(!recipient)

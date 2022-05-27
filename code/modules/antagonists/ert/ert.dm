@@ -313,7 +313,7 @@
 	random_names = FALSE
 
 /datum/antagonist/ert/families/undercover_cop/on_gain()
-	if(istype(owner.current, /mob/living/carbon/human))
+	if(ishuman(owner.current))
 		for(var/C in free_clothes)
 			var/obj/O = new C(owner.current)
 			var/list/slots = list (

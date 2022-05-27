@@ -91,11 +91,11 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/regalrat/CanAttack(atom/the_target)
-	if(istype(the_target,/mob/living/simple_animal))
+	if(isanimal(the_target))
 		var/mob/living/A = the_target
-		if(istype(the_target, /mob/living/simple_animal/hostile/regalrat) && A.stat == CONSCIOUS)
+		if(isregalrat(the_target) && A.stat == CONSCIOUS)
 			return TRUE
-		if(istype(the_target, /mob/living/simple_animal/hostile/rat) && A.stat == CONSCIOUS)
+		if(israt(the_target) && A.stat == CONSCIOUS)
 			var/mob/living/simple_animal/hostile/rat/R = the_target
 			if(R.faction_check_mob(src, TRUE))
 				return FALSE
@@ -105,13 +105,13 @@
 
 /mob/living/simple_animal/hostile/regalrat/examine(mob/user)
 	. = ..()
-	if(istype(user,/mob/living/simple_animal/hostile/rat))
+	if(israt(user))
 		var/mob/living/simple_animal/hostile/rat/ratself = user
 		if(ratself.faction_check_mob(src, TRUE))
 			. += span_notice("This is your king. Long live their majesty!")
 		else
 			. += span_warning("This is a false king! Strike them down!")
-	else if(user != src && istype(user,/mob/living/simple_animal/hostile/regalrat))
+	else if(user != src && isregalrat(user))
 		. += span_warning("Who is this foolish false king? This will not stand!")
 
 /mob/living/simple_animal/hostile/regalrat/handle_environment(datum/gas_mixture/environment)
@@ -252,7 +252,7 @@
 		something_from_nothing = TRUE
 		if(M.mind && M.stat == CONSCIOUS)
 			M.mind.transfer_to(new_rat)
-		if(istype(owner,/mob/living/simple_animal/hostile/regalrat))
+		if(isregalrat(owner))
 			var/mob/living/simple_animal/hostile/regalrat/giantrat = owner
 			new_rat.faction = giantrat.faction
 		qdel(M)
@@ -327,13 +327,13 @@
 
 /mob/living/simple_animal/hostile/rat/examine(mob/user)
 	. = ..()
-	if(istype(user,/mob/living/simple_animal/hostile/rat))
+	if(israt(user))
 		var/mob/living/simple_animal/hostile/rat/ratself = user
 		if(ratself.faction_check_mob(src, TRUE))
 			. += span_notice("You both serve the same king.")
 		else
 			. += span_warning("This fool serves a different king!")
-	else if(istype(user,/mob/living/simple_animal/hostile/regalrat))
+	else if(isregalrat(user))
 		var/mob/living/simple_animal/hostile/regalrat/ratking = user
 		if(ratking.faction_check_mob(src, TRUE))
 			. += span_notice("This rat serves under you.")
@@ -341,15 +341,15 @@
 			. += span_warning("This peasant serves a different king! Strike them down!")
 
 /mob/living/simple_animal/hostile/rat/CanAttack(atom/the_target)
-	if(istype(the_target,/mob/living/simple_animal))
+	if(isanimal(the_target))
 		var/mob/living/A = the_target
-		if(istype(the_target, /mob/living/simple_animal/hostile/regalrat) && A.stat == CONSCIOUS)
+		if(isregalrat(the_target) && A.stat == CONSCIOUS)
 			var/mob/living/simple_animal/hostile/regalrat/ratking = the_target
 			if(ratking.faction_check_mob(src, TRUE))
 				return FALSE
 			else
 				return TRUE
-		if(istype(the_target, /mob/living/simple_animal/hostile/rat) && A.stat == CONSCIOUS)
+		if(israt(the_target) && A.stat == CONSCIOUS)
 			var/mob/living/simple_animal/hostile/rat/R = the_target
 			if(R.faction_check_mob(src, TRUE))
 				return FALSE

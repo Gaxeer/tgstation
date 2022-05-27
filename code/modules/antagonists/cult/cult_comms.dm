@@ -319,7 +319,7 @@
 	desc = "Marks a target for the entire cult to track."
 
 /datum/action/innate/cult/master/cultmark/ghost/IsAvailable()
-	if(istype(owner, /mob/dead/observer) && IS_CULTIST(owner.mind.current))
+	if(isobserver(owner) && IS_CULTIST(owner.mind.current))
 		return TRUE
 	else
 		qdel(src)
@@ -333,7 +333,7 @@
 	var/base_cooldown = 600
 
 /datum/action/innate/cult/ghostmark/IsAvailable()
-	if(istype(owner, /mob/dead/observer) && IS_CULTIST(owner.mind.current))
+	if(isobserver(owner) && IS_CULTIST(owner.mind.current))
 		return TRUE
 	else
 		qdel(src)

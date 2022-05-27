@@ -216,7 +216,7 @@
 			return
 
 	var/client/C
-	if(istype(whom, /client))
+	if(isclient(whom))
 		C = whom
 	else if(istext(whom))
 		C = GLOB.directory[whom]

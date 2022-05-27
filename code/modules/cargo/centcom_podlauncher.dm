@@ -62,7 +62,7 @@
 		setup(user)
 
 /datum/centcom_podlauncher/proc/setup(user) //H can either be a client or a mob
-	if (istype(user,/client))
+	if (isclient(user))
 		var/client/user_client = user
 		holder = user_client //if its a client, assign it to holder
 	else

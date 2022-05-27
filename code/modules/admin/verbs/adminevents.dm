@@ -307,7 +307,7 @@
 	if(!holder)
 		return
 
-	if(!holder.marked_datum || !istype(holder.marked_datum, /mob/living))
+	if(!holder.marked_datum || !isliving(holder.marked_datum))
 		return
 
 	var/mob/living/marked_mob = holder.marked_datum

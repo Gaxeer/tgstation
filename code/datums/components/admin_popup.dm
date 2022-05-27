@@ -8,7 +8,7 @@
 	var/atom/movable/screen/admin_popup/admin_popup
 
 /datum/component/admin_popup/Initialize(datum/admin_help/ticket)
-	if (!istype(parent, /client))
+	if (!isclient(parent))
 		return COMPONENT_INCOMPATIBLE
 
 	if (!istype(ticket))

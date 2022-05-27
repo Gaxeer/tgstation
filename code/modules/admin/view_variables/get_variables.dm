@@ -25,13 +25,13 @@
 	else if(isloc(var_value))
 		. = VV_ATOM_REFERENCE
 
-	else if(istype(var_value, /client))
+	else if(isclient(var_value))
 		. = VV_CLIENT
 
-	else if(istype(var_value, /datum/weakref))
+	else if(isweakref(var_value))
 		. = VV_WEAKREF
 
-	else if(istype(var_value, /datum))
+	else if(isdatum(var_value))
 		. = VV_DATUM_REFERENCE
 
 	else if(ispath(var_value))

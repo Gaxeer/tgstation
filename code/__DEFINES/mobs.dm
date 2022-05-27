@@ -680,7 +680,7 @@
 #define RESIZE_DEFAULT_SIZE 1
 
 /// Get the client from the var
-#define CLIENT_FROM_VAR(I) (ismob(I) ? I:client : (istype(I, /client) ? I : (istype(I, /datum/mind) ? I:current?:client : null)))
+#define CLIENT_FROM_VAR(I) (ismob(I) ? I:client : (isclient(I) ? I : (istype(I, /datum/mind) ? I:current?:client : null)))
 
 /// The mob will vomit a green color
 #define VOMIT_TOXIC 1

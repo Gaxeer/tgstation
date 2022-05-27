@@ -407,7 +407,7 @@
 	wash_audio = new(owner)
 
 /datum/action/toggle_buffer/IsAvailable()
-	if(!istype(owner, /mob/living/silicon/robot))
+	if(!iscyborg(owner))
 		return FALSE
 	return ..()
 

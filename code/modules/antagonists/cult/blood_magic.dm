@@ -589,7 +589,7 @@
 				new /obj/item/stack/sheet/runed_metal(T,quantity)
 				to_chat(user, span_warning("A dark cloud emanates from you hand and swirls around the plasteel, transforming it into runed metal!"))
 				SEND_SOUND(user, sound('sound/effects/magic.ogg',0,1,25))
-		else if(istype(target,/mob/living/silicon/robot))
+		else if(iscyborg(target))
 			var/mob/living/silicon/robot/candidate = target
 			if(candidate.mmi || candidate.shell)
 				channeling = TRUE

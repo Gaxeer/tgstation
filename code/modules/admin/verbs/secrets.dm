@@ -14,7 +14,7 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 	var/is_funmin = FALSE
 
 /datum/secrets_menu/New(user)//user can either be a client or a mob due to byondcode(tm)
-	if (istype(user, /client))
+	if (isclient(user))
 		var/client/user_client = user
 		holder = user_client //if its a client, assign it to holder
 	else

@@ -88,7 +88,7 @@
 
 	// You are going to knock someone down for longer if they are not wearing a helmet.
 	var/head_attack_message = ""
-	if(affecting == BODY_ZONE_HEAD && istype(target, /mob/living/carbon/))
+	if(affecting == BODY_ZONE_HEAD && iscarbon(target))
 		head_attack_message = " on the head"
 		if(armor_duration)
 			living_target.apply_effect(min(armor_duration, 200) , EFFECT_KNOCKDOWN)

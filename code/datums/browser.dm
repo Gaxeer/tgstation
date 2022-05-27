@@ -180,7 +180,7 @@
 	if (!User)
 		User = usr
 	if (!istype(User))
-		if (istype(User, /client))
+		if (isclient(User))
 			var/client/client = User
 			User = client.mob
 		else
@@ -298,7 +298,7 @@
 
 /proc/presentpicker(mob/User,Message, Title, Button1="Ok", Button2, Button3, StealFocus = 1,Timeout = 6000,list/values, inputtype = "checkbox", width, height, slidecolor)
 	if (!istype(User))
-		if (istype(User, /client/))
+		if (isclient(User))
 			var/client/C = User
 			User = C.mob
 		else
@@ -422,7 +422,7 @@
 
 /proc/presentpreflikepicker(mob/User,Message, Title, Button1="Ok", Button2, Button3, StealFocus = 1,Timeout = 6000,list/settings, width, height, slidecolor)
 	if (!istype(User))
-		if (istype(User, /client/))
+		if (isclient(User))
 			var/client/C = User
 			User = C.mob
 		else

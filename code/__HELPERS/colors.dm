@@ -51,7 +51,7 @@
 			flashed_client = client_mob.client
 		else
 			return
-	else if(istype(mob_or_client, /client))
+	else if(isclient(mob_or_client))
 		flashed_client = mob_or_client
 
 	if(!istype(flashed_client))

@@ -4,7 +4,7 @@
 
 /datum/skill_panel/New(user, datum/mind/mind)//H can either be a client or a mob due to byondcode(tm)
 	targetmind = mind
-	if (istype(user,/client))
+	if (isclient(user))
 		var/client/userClient = user
 		holder = userClient //if its a client, assign it to holder
 	else

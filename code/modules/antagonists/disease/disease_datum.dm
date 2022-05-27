@@ -24,7 +24,7 @@
 	owner.announce_objectives()
 
 /datum/antagonist/disease/apply_innate_effects(mob/living/mob_override)
-	if(!istype(owner.current, /mob/camera/disease))
+	if(!issentientdisease(owner.current))
 		var/turf/T = get_turf(owner.current)
 		T = T ? T : SSmapping.get_station_center()
 		var/mob/camera/disease/D = new /mob/camera/disease(T)
@@ -61,7 +61,7 @@
 	else
 		result += span_redtext("The [special_role_text] has failed!")
 
-	if(istype(owner.current, /mob/camera/disease))
+	if(issentientdisease(owner.current))
 		var/mob/camera/disease/D = owner.current
 		result += "<B>[disease_name] completed the round with [D.hosts.len] infected hosts, and reached a maximum of [D.total_points] concurrent infections.</B>"
 		result += "<B>[disease_name] completed the round with the following adaptations:</B>"

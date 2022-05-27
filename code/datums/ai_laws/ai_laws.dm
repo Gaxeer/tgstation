@@ -254,7 +254,7 @@
 		return TRUE
 	if(owner?.mind?.special_role)
 		return FALSE
-	if (istype(owner, /mob/living/silicon/ai))
+	if (isAI(owner))
 		var/mob/living/silicon/ai/A=owner
 		if(A?.deployed_shell?.mind?.special_role)
 			return FALSE

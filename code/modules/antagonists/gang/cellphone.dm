@@ -42,7 +42,7 @@ GLOBAL_LIST_EMPTY(gangster_cell_phones)
 		if(brick.gang_id == gang_id)
 			brick.say_message(message, speaker)
 	for(var/mob/dead/observer/player_mob in GLOB.player_list)
-		if(!istype(player_mob, /mob/dead/observer))
+		if(!isobserver(player_mob))
 			continue
 		if(QDELETED(player_mob)) //Some times nulls and deleteds stay in this list. This is a workaround to prevent ic chat breaking for everyone when they do.
 			continue //Remove if underlying cause (likely byond issue) is fixed. See TG PR #49004.
@@ -51,9 +51,9 @@ GLOBAL_LIST_EMPTY(gangster_cell_phones)
 		if(get_dist(player_mob, src) > 7 || player_mob.z != z) //they're out of range of normal hearing
 			if(!(player_mob.client.prefs.chat_toggles & CHAT_GHOSTEARS)) //they're talking normally and we have hearing at any range off
 				continue
-		var/link = FOLLOW_LINK(player_mob, src)	
+		var/link = FOLLOW_LINK(player_mob, src)
 		to_chat(player_mob, span_gangradio("[link] <b>[speaker.name]</b> \[CELL: [gang_id]\] says, \"[message]\""))
-		
+
 /obj/item/gangster_cellphone/proc/say_message(message, atom/movable/speaker)
 	for(var/mob/living/carbon/human/cellphone_hearer in get_turf(src))
 		if(HAS_TRAIT(cellphone_hearer, TRAIT_DEAF))

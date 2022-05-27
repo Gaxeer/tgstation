@@ -1415,7 +1415,7 @@
 	var/client/holder //client of whoever is using this datum
 
 /datum/memory_panel/New(user, mind_reference)//user can either be a client or a mob due to byondcode(tm)
-	if (istype(user, /client))
+	if (isclient(user))
 		var/client/user_client = user
 		holder = user_client //if its a client, assign it to holder
 	else

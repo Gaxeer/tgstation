@@ -354,7 +354,7 @@
 		// Are we trying to pull something we are already pulling? Then enter grab cycle and end.
 		if(pulled_atom == pulling)
 			setGrabState(state)
-			if(istype(pulled_atom,/mob/living))
+			if(isliving(pulled_atom))
 				var/mob/living/pulled_mob = pulled_atom
 				pulled_mob.grabbedby(src)
 			return TRUE
