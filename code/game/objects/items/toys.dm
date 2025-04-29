@@ -45,7 +45,7 @@
  * Balloons
  */
 /obj/item/toy/waterballoon
-	name = "water balloon"
+	name = "water ballooon"
 	desc = "A translucent balloon. There's nothing in it."
 	icon = 'icons/obj/toys/balloons.dmi'
 	icon_state = "balloon_red-e"
