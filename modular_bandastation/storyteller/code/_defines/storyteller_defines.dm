@@ -8,8 +8,6 @@
 #define TAG_COMMUNAL "communal"
 /// When the event targets a person for something (appendix, heart attack)
 #define TAG_TARGETED "targeted"
-/// When the event is positive and helps the crew, in some capacity (Shuttle Loan, Supply Pod)
-#define TAG_POSITIVE "positive"
 /// When one of the crewmembers becomes an antagonist
 #define TAG_CREW_ANTAG "crew_antag"
 /// When the antagonist event is focused around team cooperation.
